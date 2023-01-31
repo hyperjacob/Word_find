@@ -4,7 +4,8 @@ import abc
 from markup.markup import Keyboards
 # импортируем класс-менеджер для работы с библиотекой
 from data_base.dbalchemy import DBManager
-
+# импортируем логгер
+from settings.logger import Logger
 
 class Handler(metaclass=abc.ABCMeta):
 
@@ -15,6 +16,8 @@ class Handler(metaclass=abc.ABCMeta):
         self.keybords = Keyboards()
         # инициализируем менеджер для работы с БД
         self.BD = DBManager()
+        # инициализируем логгер
+        self.Log = Logger()
 
     @abc.abstractmethod
     def handle(self):

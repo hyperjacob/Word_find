@@ -4,6 +4,8 @@ from telebot import TeleBot
 from settings import config
 # импортируем главный класс-обработчик бота
 from handlers.handler_main import HandlerMain
+from settings.logger import Logger
+from time import sleep
 
 
 class TelBot:
@@ -22,8 +24,11 @@ class TelBot:
         self.token = config.TOKEN
         # инициализируем бот на основе зарегистрированного токена
         self.bot = TeleBot(self.token)
+        # инициализируем логгер
+        self.Log = Logger()
         # инициализируем оброботчик событий
         self.handler = HandlerMain(self.bot)
+
 
     def start(self):
         """
@@ -38,7 +43,26 @@ class TelBot:
         # обработчик событий
         self.start()
         # служит для запуска бота (работа в режиме нон-стоп)
-        self.bot.polling(none_stop=True)
+        count_try = 0
+        while count_try < 5:
+            try:
+                self.bot.polling(none_stop=True)
+            except:
+                self.Log.write_log("Ошибка таймаута")
+                count_try += 1
+                sleep(15)
+
+        # try:
+        #     self.bot.polling(none_stop=True)
+        # except:
+        #     pass
+        # while True:
+        #     try:
+        #         self.bot.polling(none_stop=True)
+        #     except Exception as e:
+        #         print(e)
+        #         traceback.print_exc()
+        #         time.sleep(15)
 
 
 if __name__ == '__main__':

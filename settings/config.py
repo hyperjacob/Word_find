@@ -4,11 +4,11 @@ from emoji import emojize
 from settings import word_gen
 
 # токен выдается при регистрации приложения
-TOKEN = ''
+TOKEN = '846695283:AAF5eX72QfmQs45LpMxdmMhKwPaWg1b3SEk'
 # название БД
 NAME_DB = 'products.db'
 # версия приложения
-VERSION = '1.0.1'
+VERSION = '1.0.4'
 # автор приложния
 AUTHOR = 'Jacob'
 
@@ -16,25 +16,12 @@ AUTHOR = 'Jacob'
 
 
 
-# # родительская директория
+# родительская директория
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-# # путь до базы данных
+# путь до базы данных
 DATABASE = os.path.join('sqlite:///'+BASE_DIR, NAME_DB)
 
 
-# # HARD = {}
-# LANG = "EN"
-# COUNT = 1
-# # play = {}
-# # setname = False
-# # setname = {}
-# on_place = 0
-# on_word = 0
-# try_word = ""
-# score = 0
-# tips = 3
-
-# def defolt_set(teleid):
 
 
 def newword(LANG, DIFF):

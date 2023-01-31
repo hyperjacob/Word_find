@@ -20,7 +20,7 @@ class HanderCommands(Handler):
                               reply_markup=self.keybords.start_menu())
     # обработка /help
     def pressed_btn_help(self, message):
-        self.bot.send_message(message.chat.id, MESSAGES['onboard'],
+        self.bot.send_message(message.chat.id, MESSAGES['onboard'], parse_mode="HTML",
                               reply_markup=self.keybords.start_menu())
 
     def handle(self):

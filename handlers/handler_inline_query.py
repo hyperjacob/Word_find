@@ -19,9 +19,10 @@ class HandlerInlineQuery(Handler):
         """
         Обрабатывает входящие запросы на нажатие inline-кнопок товара
         """
-        # config.HARD = code
-        # print('config.HARD ', config.HARD)
-        self.BD.set_settings("hard", code, call.from_user.id)
+        try:
+            self.BD.set_settings("hard", code, call.from_user.id)
+        except:
+            self.Log.write_log("user id: " + str(call.from_user.id) + ". Ошибка доступа к БД. Не удалось изменить уровень сложности")
         self.bot.edit_message_reply_markup(call.from_user.id, call.message.message_id, reply_markup=None)
         self.bot.send_message(call.from_user.id, f'Уровень сложности изменен на {code}й',
                               parse_mode="HTML",
