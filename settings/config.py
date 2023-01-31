@@ -4,7 +4,7 @@ from emoji import emojize
 from settings import word_gen
 
 # токен выдается при регистрации приложения
-TOKEN = '846695283:AAF5eX72QfmQs45LpMxdmMhKwPaWg1b3SEk'
+TOKEN = ''
 # название БД
 NAME_DB = 'products.db'
 # версия приложения
